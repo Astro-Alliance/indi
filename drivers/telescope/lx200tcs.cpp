@@ -99,9 +99,9 @@ bool TCSBase::ISNewSwitch(const char *dev, const char *name, ISState *states, ch
         {
             bool enable = TCSDEEncoderTrackingAssistantSP[0].getState() == ISS_ON;
             if(enable)
-                sendOnStepCommand(":SX45,1");
-            else
                 sendOnStepCommand(":SX45,0");
+            else
+                sendOnStepCommand(":SX45,1");
         }
     }
     return LX200_OnStep::ISNewSwitch(dev, name, states, names, n);
